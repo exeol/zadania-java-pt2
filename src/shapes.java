@@ -1,8 +1,13 @@
 import sun.awt.AWTAccessor;
 
 class TwoDShape {
-    double width;
-    double height;
+    private double width;
+    private double height;
+
+    double getWidth() {return width;}
+    double getHeight() {return height;}
+    void setWidth(double w) { width = w;}
+    void setHeight(double h) {height = h;}
 
     void showDim() {
         System.out.println("Szerokość i wysokość obiektu: " + width + " i " + height);
@@ -13,7 +18,7 @@ class Triangle extends TwoDShape {
     String style;
 
     double area() {
-        return width * height / 2;
+        return getWidth()* getHeight() / 2;
     }
 
     void showStyle() {
@@ -27,12 +32,12 @@ class shapes {
         Triangle t1 = new Triangle();
         Triangle t2 = new Triangle();
 
-        t1.width = 4.0;
-        t1.height = 4.0;
+        t1.setWidth(4.0);
+        t1.setHeight(4.0);
         t1.style = "wypełniony";
 
-        t2.width = 8.0;
-        t2.height = 12.0;
+        t2.setWidth(8.0);
+        t2.setHeight(12.0);
         t2.style = "pusty";
 
         System.out.println("Informacje o t1: ");
