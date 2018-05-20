@@ -15,7 +15,15 @@ class TwoDShape {
 }
 
 class Triangle extends TwoDShape {
-    String style;
+    private String style;
+
+    //konstruktor
+    Triangle(String s, double w, double h) {
+        setWidth(w);
+        setHeight(h);
+
+        style = s;
+    }
 
     double area() {
         return getWidth()* getHeight() / 2;
@@ -29,16 +37,9 @@ class Triangle extends TwoDShape {
 
 class shapes {
     public static void main(String arg[]) {
-        Triangle t1 = new Triangle();
-        Triangle t2 = new Triangle();
+        Triangle t1 = new Triangle("wypełniony", 4.0, 5.0);
+        Triangle t2 = new Triangle("pusty", 8.0, 12.0);
 
-        t1.setWidth(4.0);
-        t1.setHeight(4.0);
-        t1.style = "wypełniony";
-
-        t2.setWidth(8.0);
-        t2.setHeight(12.0);
-        t2.style = "pusty";
 
         System.out.println("Informacje o t1: ");
         t1.showStyle();
