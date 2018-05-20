@@ -4,6 +4,12 @@ class TwoDShape {
     private double width;
     private double height;
 
+    TwoDShape(double w, double h) {
+        width = w;
+        height = h;
+    }
+
+    //metody dostępowe do skłądowych prywatnych
     double getWidth() {return width;}
     double getHeight() {return height;}
     void setWidth(double w) { width = w;}
@@ -19,8 +25,8 @@ class Triangle extends TwoDShape {
 
     //konstruktor
     Triangle(String s, double w, double h) {
-        setWidth(w);
-        setHeight(h);
+        super(w, h); // odwołanie do konstruktora klasy bazowej
+
 
         style = s;
     }
