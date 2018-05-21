@@ -19,6 +19,7 @@ class TwoDShape {
         width = height = x;
     }
 
+
     //metody dostępowe do skłądowych prywatnych
     double getWidth() {return width;}
     double getHeight() {return height;}
@@ -63,18 +64,31 @@ class Triangle extends TwoDShape {
 
 }
 
+//klasa pochodna klasy triangle
+class colorTriangle extends Triangle {
+    private String color;
+
+    colorTriangle(String c, String s, double w, double h) {
+        super(s, w, h);
+        color = c;
+    }
+
+    String getColor() { return color;}
+    void showColor() {
+        System.out.println("Kolor: " + color);
+    }
+}
+
 class shapes {
     public static void main(String arg[]) {
-        Triangle t1 = new Triangle();
-        Triangle t2 = new Triangle("pusty", 8.0, 12.0);
-        Triangle t3 = new Triangle(4.0);
-
-        t1 = t2;
+        colorTriangle t1 = new colorTriangle("niebieski", "pusty", 8.0, 12.0);
+        colorTriangle t2 = new colorTriangle("czerwony", "wypełniony", 4.0, 2.0);
 
 
         System.out.println("Informacje o t1: ");
         t1.showStyle();
         t1.showDim();
+        t1.showColor();
         System.out.println("Powierzchnia wynosi " + t1.area());
 
         System.out.println();
@@ -82,14 +96,12 @@ class shapes {
         System.out.println("Informacje o t2: ");
         t2.showStyle();
         t2.showDim();
+        t2.showColor();
         System.out.println("Powierzchnia wynosi " + t2.area());
 
         System.out.println();
 
-        System.out.println("Informacje o t3: ");
-        t3.showStyle();
-        t3.showDim();
-        System.out.println("Powierzchnia wynosi " + t3.area());
+
     }
 }
 
