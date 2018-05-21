@@ -43,7 +43,7 @@ public class referencje {
         x2 = xx;
         System.out.println(xx.t);
 
-        
+
 
 
     }

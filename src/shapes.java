@@ -19,6 +19,12 @@ class TwoDShape {
         width = height = x;
     }
 
+    //konstruktor wykorzystujący obiekt.
+    TwoDShape(TwoDShape ob) {
+        width = ob.width;
+        height = ob.height;
+    }
+
 
     //metody dostępowe do skłądowych prywatnych
     double getWidth() {return width;}
@@ -54,6 +60,11 @@ class Triangle extends TwoDShape {
         style = "wypełniony";
     }
 
+    Triangle(Triangle ob) {
+        super(ob);
+        style = ob.style;
+    }
+
     double area() {
         return getWidth()* getHeight() / 2;
     }
@@ -81,14 +92,14 @@ class colorTriangle extends Triangle {
 
 class shapes {
     public static void main(String arg[]) {
-        colorTriangle t1 = new colorTriangle("niebieski", "pusty", 8.0, 12.0);
-        colorTriangle t2 = new colorTriangle("czerwony", "wypełniony", 4.0, 2.0);
+        Triangle t1 = new Triangle("pusty", 8.0, 12.0);
+        Triangle t2 = new Triangle(t1);
 
 
         System.out.println("Informacje o t1: ");
         t1.showStyle();
         t1.showDim();
-        t1.showColor();
+
         System.out.println("Powierzchnia wynosi " + t1.area());
 
         System.out.println();
@@ -96,7 +107,7 @@ class shapes {
         System.out.println("Informacje o t2: ");
         t2.showStyle();
         t2.showDim();
-        t2.showColor();
+        
         System.out.println("Powierzchnia wynosi " + t2.area());
 
         System.out.println();
