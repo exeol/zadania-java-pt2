@@ -139,7 +139,7 @@ class shapes {
         shapes[1] = new Rectangle(10);
         shapes[2] = new Rectangle(10, 4);
         shapes[3] = new Triangle(7.0);
-        
+
 
         for(int i=0; i < shapes.length; i++) {
             System.out.println("Typ obiektu: " + shapes[i].getName());
