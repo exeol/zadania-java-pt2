@@ -1,5 +1,5 @@
 
-class TwoDShape {
+abstract class TwoDShape {
     private double width;
     private double height;
     private String name;
@@ -42,10 +42,10 @@ class TwoDShape {
     void showDim() {
         System.out.println("Szerokość i wysokość obiektu: " + width + " i " + height);
     }
-    double area() {         //metoda area() zdefiniowana w klasie TwoDShape
-        System.out.println("area() musi być przesłonięta w klasach pochodnych");
-        return 0.0;
-    }
+
+    abstract double area();
+
+
 }
 
 class Triangle extends TwoDShape {
@@ -133,13 +133,13 @@ class Rectangle extends TwoDShape {
 
 class shapes {
     public static void main(String arg[]) {
-        TwoDShape shapes[] = new TwoDShape[5];
+        TwoDShape shapes[] = new TwoDShape[4];
 
         shapes[0] = new Triangle("pusty", 8.0, 12.0);
         shapes[1] = new Rectangle(10);
         shapes[2] = new Rectangle(10, 4);
         shapes[3] = new Triangle(7.0);
-        shapes[4] = new TwoDShape(10, 20, "ogólny");
+        
 
         for(int i=0; i < shapes.length; i++) {
             System.out.println("Typ obiektu: " + shapes[i].getName());
