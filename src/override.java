@@ -21,6 +21,7 @@ class ovvB extends ovvA {
 
     //metoda przesłaniająca metodę z klasy ovvA
     void show() {
+        super.show();
         System.out.println("k: " +k);
     }
 }
