@@ -1,4 +1,4 @@
-class FixedQuee implements ICharQ {
+class FixedQueue implements ICharQ {
     private char q[];    //tarblica, która będzie przechowywać elementy kolejki
     private int putloc, getloc;  //indeksy operacji put i get
 
@@ -25,7 +25,7 @@ class FixedQuee implements ICharQ {
             return (char) 0;
         }
 
-        return q[getloc++]
+        return q[getloc++];
     }
 }
 
@@ -97,7 +97,7 @@ class DynQueue implements ICharQ {
     public char get() {
         if(getloc == putloc) {
             System.out.println("  -- Kolejka pusta.");
-            return (char) = 0;
+            return (char)  0;
         }
 
         return q[getloc++];
@@ -110,4 +110,75 @@ class DynQueue implements ICharQ {
 
 
 public class IQDemo {
+    public static void main(String args[]) {
+        FixedQueue q1 = new FixedQueue(10);
+        DynQueue q2 = new DynQueue(5);
+        CircularQueue q3 = new CircularQueue(10);
+
+        ICharQ iQ;
+
+        char ch;
+        int i;
+
+        iQ = q1;
+        //umieszczamy znaki w kolejce o stałym rozmiarze.
+        for(i = 0; i < 10; i ++)
+            iQ.put((char) ('A' + i));
+
+        //wyświetlamy zawartość kolejki
+        System.out.println("Zawartość kolejki o stałym rozmiarze: ");
+        for(i=0; i < 10; i++) {
+            ch = iQ.get();
+            System.out.print(ch);
+        }
+        System.out.println();
+
+        iQ = q2;
+        //umieszczam znaki w kolejce dynamicznej
+        for(i = 0; i < 10; i ++)
+            iQ.put((char) ('Z' - i));
+
+        //wyświetlam zawartość kolejki dynamicznej
+        System.out.println("Zawartość kolejki o dynamicznej: ");
+        for(i=0; i < 10; i++) {
+            ch = iQ.get();
+            System.out.print(ch);
+        }
+        System.out.println();
+
+        iQ = q3;
+        //umieszczam znaki w kolejce cyklicznej
+        for(i = 0; i < 10; i ++)
+            iQ.put((char) ('A' + i));
+
+        //wyświetlamy zawartość kolejki
+        System.out.println("Zawartość kolejki cyklicznej ");
+        for(i=0; i < 10; i++) {
+            ch = iQ.get();
+            System.out.print(ch);
+        }
+        System.out.println();
+
+
+        //Umieszczam więcej znaków w kolecje cyklicznej.
+        for(i = 10; i < 20; i ++)
+            iQ.put((char) ('A' + i));
+
+        //wyświetlamy zawartość kolejki
+        System.out.println("Zawartość kolejki cyklicznej więcej: ");
+        for(i=0; i < 10; i++) {
+            ch = iQ.get();
+            System.out.print(ch);
+        }
+
+
+        System.out.println("\nUmieszczam i pobieram znak z kolejki cyklicznej");
+
+        for(i = 0; i < 20; i++) {
+            iQ.put((char) ('A' + i));
+            ch = iQ.get();
+            System.out.print(ch);
+        }
+
+    }
 }
