@@ -1,6 +1,11 @@
+import java.util.Scanner;
+
+
 class Menu {
     int number;
     String text;
+    animals anim;
+
 
     Menu() {
         number = 5;
@@ -32,12 +37,37 @@ class Menu {
         System.out.println(text.getClass());
     }
 
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public Menu(animals anim) {
+        this.anim = anim;
+    }
+
+
+
+
 }
 
 
 class Car {
     String name;
     int maxSpeed;
+
+
 
     //konstruktor
     Car() {
@@ -49,13 +79,24 @@ class Car {
         this.name = name;
     }
 
-
+    static int krowa;
+    static Integer krowa2;
 }
 
-
+enum animals {
+    dog,
+    cat,
+    bird,
+    snake,
+}
 
 public class Main {
+
+    static int aa;
+
     public static void main(String args[]) {
+
+
 
         Car myCar = new Car();
         System.out.println(myCar.name + " " +myCar.maxSpeed);
@@ -81,6 +122,35 @@ public class Main {
         System.out.println(menu.getClass());
 
         menu2.giveClass();
+
+        menu.setNumber(23);
+        menu.setText("uhulala");
+
+        System.out.println(menu.getNumber() + " " + menu.getText());
+
+        System.out.println("----------------------------------");
+
+
+
+        System.out.println(Car.krowa);
+        System.out.println(Car.krowa2);
+        System.out.println(aa);
+
+
+        Menu animale = new Menu(animals.snake);
+        System.out.println(animale.anim);
+
+        System.out.println("----------------------------------");
+
+        String name;
+        Scanner yourName = new Scanner(System.in);
+        name = yourName.nextLine();
+        System.out.println(name);
+
+
+
+
+
     }
 
 
