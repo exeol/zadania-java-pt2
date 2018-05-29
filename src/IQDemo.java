@@ -91,6 +91,9 @@ class DynQueue implements ICharQ {
         }
 
         q[putloc++] = ch;
+
+
+
     }
 
 
