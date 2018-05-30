@@ -1,6 +1,6 @@
 package exceptions;
 
-class ExcTest {
+class ExcTest2 {
     static void getException() {
         int nums[] = new int[4];
 
@@ -15,7 +15,7 @@ public class ExcDemo2 {
     public static void main(String args[]) {
 
         try {
-            ExcTest.getException();
+            ExcTest2.getException();
         }
         catch (ArrayIndexOutOfBoundsException exc) {
 
